@@ -19,6 +19,8 @@ public function __construct(
 }
 
 
+
+
 public function getAll(){
     $stm = $this->db->prepare("select * from {$this->table}");
     $stm->execute();

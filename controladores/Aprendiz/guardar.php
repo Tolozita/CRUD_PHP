@@ -1,8 +1,8 @@
 <?php  
 
-require_once(__DIR__."/../libs/Database.php");
-require_once(__DIR__."/../libs/Modelo.php");
-include_once("../clases/Aprendiz.php");
+require_once(__DIR__."/../../libs/Database.php");
+require_once(__DIR__."/../../libs/Modelo.php");
+include_once("./../../clases/Aprendiz.php");
 
 
 
@@ -52,11 +52,11 @@ $valor = $aprendiz->store([
     'phone' => $celular,
     'dni' => $Cedula,
     'user_account' => $cuenta,
-    'average' => $promedio   
+    'average' => $promedio
     ]);
 
     if($valor != null){
-        header('location:', '/adso/2696521/controladores/listar.php');
+        header('location:', '/adso/2696521/controladores/Aprendiz/listar.php');
     }
 
 }else{

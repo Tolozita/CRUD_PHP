@@ -1,16 +1,10 @@
+<?php  
 
-<?php
-
-require_once(__DIR__."/../libs/Database.php");
-require_once(__DIR__."/../libs/Modelo.php");
-include_once("../clases/Aprendiz.php");
+require_once(__DIR__."/../../libs/Database.php");
+require_once(__DIR__."/../../libs/Modelo.php");
+include_once("./../../clases/Aprendiz.php");
 
 
-$database = new Database();
-$conection = $database->getConection();
-$aprendiz = new Aprendiz($conection);
-
-$id = $_REQUEST['id'];
 
 $nombre = isset($_POST['first_name']) ? 
 ($_POST['first_name'] != "" ? $_POST['first_name'] : false) :
@@ -44,17 +38,33 @@ $cuenta = isset($_POST['user_account']) ? ($_POST['user_account'] != "" ? $_POST
 
 $promedio= isset($_POST['average']) ? ($_POST['average'] != "" ? $_POST['average'] : false) : '';
 
-$aprendiz->update($id,[
-    'first_name' => $nombre,
+$salario = isset($_POST['salary']) ? ($_POST['salary'] != "" ? $_POST['salary'] : false) : '';
+
+
+if($nombre && $Apellido && $Fecha_Nacimiento && $correo && $celular && $Cedula){
+echo "Guardar";
+$database = new Database();
+$conection = $database->getConection($database);
+$aprendiz = new Aprendiz($conection);
+$valor = $aprendiz->store([
+    'first_name' => $nombre ,
     'last_name' => $Apellido,
     'birthdate' => $Fecha_Nacimiento,
     'email' => $correo,
     'phone' => $celular,
     'dni' => $Cedula,
     'user_account' => $cuenta,
-    'average' => $promedio   
-]);
+    'average' => $promedio,
+    'salary' => $salario    
+    ]);
 
-header('location: listar.php');
+    if($valor != null){
+        header('location:', '/adso/2696521/controladores/Instructor/listar.php');
+    }
+
+}else{
+
+    echo "Faltan Campos Obligatorios";
+}
 
 ?>
