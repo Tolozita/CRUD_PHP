@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <form class="formulario" action="controladores/guardar.php" method="post">
+
+        <label for="first_name">Nombre</label>
+        <input type="text" name="first_name" id="first_name">
+
+        <label for="last_name">Apellido</label>
+        <input type="text" name="last_name" id="last_name">
+
+        <label for="birthdate">Fecha de Nacimiento</label>
+        <input type="date" name="birthdate" id="birthdate">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="phone">Telefono</label>
+        <input type="number" name="phone" id="phone">
+
+        <label for="dni">Cedula</label>
+        <input type="number" name="dni" id="dni">
+
+        <label for="user_account">Cuenta</label>
+        <input type="number" name="user_account" id="user_account">
+        
+        <label for="average">Promedio</label>
+        <input type="number" step="0.01" name="average" id="average">
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</body>
+</html>
